@@ -1,0 +1,41 @@
+* {
+  background-color:black;
+  color:white;
+  font-family: futura;
+  text-align: center;
+}
+.colors {
+  border: 2px solid white;
+  margin: 20px;
+  height: 25em;
+  width: 25em;
+}
+
+div {
+  padding: 10px;
+}
+
+#red{
+  background-color:#990000;
+}
+#red:hover{
+  background-color: red;
+}
+#green{
+  background-color:#004d00;
+}
+#green:hover{
+  background-color:#00cc00;
+}
+#blue{
+  background-color:#000099;
+}
+#blue:hover{
+  background-color:#0066ff;
+}
+#yellow{
+  background-color:#cccc00;
+}
+#yellow:hover{
+  background-color:yellow;
+}
