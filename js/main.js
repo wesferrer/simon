@@ -1,51 +1,66 @@
-/*-- variables --*/
 
-var genSequence, level, guessedSequence;
-var colors = ['R', 'G', 'B', 'Y']
-var lightRed = function(){
+//define variables
+var buttonR, buttonG, buttonB, buttonY, colorSwitch, playerChoice, computerChoice, random;
+buttonR = document.getElementById('red');
+buttonG = document.getElementById('green');
+buttonB = document.getElementById('blue');
+buttonY = document.getElementById('yellow');
+playerChoice = [];
+computerChoice = [];
+random = Math.random();
 
-}
 
-/*-- elements --*/
-// for example
-var $msg = $('#msg');
+//await player to press start
 
-/*-- event listeners --*/
 
-$('.colors').on('click', function(evt) {
-  console.log(this.id)
-});
-
-$('#start').on('click', function(evt) {
-  guessedSequence = [];
-  level++;
-  // generate new code based on current level
-  generateSequence();
-  // play the sequence
-
-});
-
-/*-- helper functions --*/
-
-function initialize() {
-  level = 0;
-}
-
-function generateSequence() {
-  genSequence = [];
-  for (var i = 1; i <= level; i++){
-    //randomly generate color
-    var idx = Math.floor(Math.random() * 4);
-    genSequence.push(colors[idx]);
+//initialize board state, wait 3 seconds, then add random number to sequence
+function nextNum(){
+  if (random <= 0.24) {
+    computerChoice.push(buttonR);
+  } else if (random >0.24 || random <=0.49 ){
+    computerChoice.push(buttonG);
+  } else if (random >0.5 || random <=0.74){
+    computerChoice.push(buttonB);
+  } else {
+    computerChoice.push(buttonY);
   }
-}
-
-var redClick = $('#red').css('background-color', '#990000');
-
-
-$('#red').on('click', function(evt){
-  redClick;
-});
+  console.log('computerChoice[]')
+};
 
 
-initialize();
+//animate sequence tied to random number to user
+
+
+//listen for user input
+
+//register click to array
+$('#red').on('click', function(){
+  playerChoice.push(buttonR);
+  checkNum;
+})
+$('#green').on('click', function(){
+  playerChoice.push(buttonG);
+  checkNum;
+})
+$('#blue').on('click', function(){
+  playerChoice.push(buttonB);
+  checkNum;
+})
+$('#yellow').on('click', function(){
+  playerChoice.push(buttonY);
+  checkNum;
+})
+//
+  //if click != sequence array {
+    function checkNum(){
+      if (playerChoice != computerChoice){
+        alert('Game Over!');
+      }
+    }
+    //display game over
+      //if game score !> high score { do nothing}
+      //if game score > high score {
+        //update high score, alert('Your new high score is ' + highScore!')
+      //}
+  //}
+
