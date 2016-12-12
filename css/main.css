@@ -33,3 +33,16 @@ div {
   background-color:#cccc00;
   border-bottom-right-radius: 40px;
 }
+
+#red:active {
+  background-color: red;
+}
+#green:active {
+  background-color: green;
+}
+#blue:active {
+  background-color: blue;
+}
+#yellow:active {
+  background-color: yellow;
+}
