@@ -19,27 +19,17 @@ div {
   background-color:#990000;
   border-top-left-radius: 40px;
 }
-#red:hover{
-  background-color: red;
-}
+
 #green{
   background-color:#004d00;
   border-top-right-radius: 40px;
 }
-#green:hover{
-  background-color:#00cc00;
-}
+
 #blue{
   background-color:#000099;
   border-bottom-left-radius: 40px;
 }
-#blue:hover{
-  background-color:#0066ff;
-}
 #yellow{
   background-color:#cccc00;
   border-bottom-right-radius: 40px;
-}
-#yellow:hover{
-  background-color:yellow;
 }

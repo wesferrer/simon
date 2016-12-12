@@ -40,6 +40,12 @@ function generateSequence() {
   }
 }
 
+var redClick = $('#red').css('background-color', '#990000');
+
+
+$('#red').on('click', function(evt){
+  redClick;
+});
 
 
 initialize();
