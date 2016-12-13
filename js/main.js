@@ -1,18 +1,29 @@
 
 //define variables
-var buttonR, buttonG, buttonB, buttonY, colorSwitch, playerChoice, computerChoice, random;
+var buttonR, buttonG, buttonB, buttonY, colorSwitch, playerChoice, computerChoice, random, score, highScore, startButton;
 buttonR = document.getElementById('red');
 buttonG = document.getElementById('green');
 buttonB = document.getElementById('blue');
 buttonY = document.getElementById('yellow');
+startButton = document.getElementById('start');
 playerChoice = [];
 computerChoice = [];
 random = Math.floor((Math.random() * 4) + 1);
 random = random;
+score = 0;
+highScore = 0;
 
+function score(){
+  document.getElementById('score').innerHTML = computerChoice.length;
+}
 
 
 //await player to press start
+
+startButton.addEventListener('click', function(){
+  return init();
+})
+
 function init(){
   playerChoice = [];
   computerChoice = [];
@@ -21,7 +32,6 @@ function init(){
 
 //initialize board state, wait 3 seconds, then add random number to sequence
 function nextNum(){
-  random = random
   console.log(random);
   if (random === 1) {
     return computerChoice.push(buttonR);
@@ -35,6 +45,13 @@ function nextNum(){
     alert('try again!');
   }
 };
+console.log(random);
+
+function showComputer (){
+  if (random === 1) {
+    document.getElementByClassName('.colors').addClass("animate flash")
+  }
+ }
 
 //setTimeOut(nextNum, 3000);
 
@@ -63,32 +80,20 @@ function compare() {
   for(var i = 0; i < playerChoice.length; i++) {
     if(computerChoice[i] !=playerChoice[i]) {
       console.log('Game Over!');
-      init();
+
      }
    } if(computerChoice.length == playerChoice.length) {
      console.log('Match!');
       playerChoice = [];
       nextNum()
+      document.getElementById('score').innerHTML = 'Score: ' + (computerChoice.length - 1);
       }
     }
-    //display game over
       //if game score !> high score { do nothing}
       //if game score > high score {
         //update high score, alert('Your new high score is ' + highScore!')
       //}
   //}
 
-// function compare() {
-//   for (var i = 0; i < playerChoice.length; i++) {
-//     if (computerChoice[i] !== playerChoice[i]) {
-//       alert('Game Over!');
-//     }
-//     if (computerChoice.length === playerChoice.length) {
-//       alert('Match!');
-//       playerChoice = [];
-//       nextNum();
-//     }
-//   }
-// }
 
-init();
+//init();
