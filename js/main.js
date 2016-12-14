@@ -17,6 +17,34 @@ function score(){
   document.getElementById('score').innerHTML = computerChoice.length;
 }
 
+function disablePlayButtons(inputs){
+  for(var i = 0; i < inputs.length; i++){
+    var button = inputs[i];
+    button.disabled = true;
+  }
+}
+function enablePlayButtons(inputs){
+  for(var i = 0; i < inputs.length; i++){
+    var button = inputs[i];
+    button.disabled = false;
+  }
+}
+function compTurn(){
+  console.log('Match!');
+  playerChoice = [];
+  nextNum()
+  document.getElementById('score').innerHTML = 'Score: ' + (computerChoice.length - 1);
+}
+function gameOver(){
+  console.log('Game Over!');
+  disablePlayButtons(document.getElementsByClassName('colors'));
+  /*setTimeout(function(){
+    alert('Press Start to try again!');
+  }, 1000);*/
+}
+
+disablePlayButtons(document.getElementsByClassName('colors'));
+
 
 //await player to press start
 
@@ -28,6 +56,8 @@ function init(){
   playerChoice = [];
   computerChoice = [];
   nextNum();
+  enablePlayButtons(document.getElementsByClassName('colors'));
+  document.getElementById('score').innerHTML = 'Score: ';
 }
 
 //initialize board state, wait 3 seconds, then add random number to sequence
@@ -45,15 +75,6 @@ function nextNum(){
     alert('try again!');
   }
 };
-console.log(random);
-
-function showComputer (){
-  if (random === 1) {
-    document.getElementByClassName('.colors').addClass("animate flash")
-  }
- }
-
-//setTimeOut(nextNum, 3000);
 
 //animate sequence tied to random number to user
 
@@ -78,22 +99,16 @@ $('#yellow').on('click', function(){
 function compare() {
   random = Math.floor((Math.random() * 4) + 1);
   for(var i = 0; i < playerChoice.length; i++) {
-    if(computerChoice[i] !=playerChoice[i]) {
+    if(computerChoice[i] !== playerChoice[i]) {
       console.log('Game Over!');
-
-     }
-   } if(computerChoice.length == playerChoice.length) {
-     console.log('Match!');
+      disablePlayButtons(document.getElementsByClassName('colors'));
       playerChoice = [];
-      nextNum()
-      document.getElementById('score').innerHTML = 'Score: ' + (computerChoice.length - 1);
-      }
+      setTimeout(function(){
+        alert("Press Start to try again!");
+      }, 1000);
     }
-      //if game score !> high score { do nothing}
-      //if game score > high score {
-        //update high score, alert('Your new high score is ' + highScore!')
-      //}
-  //}
-
-
-//init();
+   }
+  if(computerChoice.length === playerChoice.length) {
+      compTurn ();
+    };
+}
