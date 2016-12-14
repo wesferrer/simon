@@ -8,20 +8,31 @@
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 </head>
 <body>
-  <header><h1> Simon! </h1> </header>
+  <header>
+    <h1> Super Simon! </h1> <br>
+    <h2 id="over"><strong>GAME OVER! INSERT COIN</strong></h2>
+  </header>
   <div id="top row">
-    <button class="colors" id='red'></button>
-    <button class="colors" id='green'></button>
+    <button class="colors" id='red' name="sound" value="mario">
+      <img src="http://themushroomkingdom.net/images/ani/ani_smwmariobig.gif">
+    </button>
+    <button class="colors" id="green" name="sound" value="yoshi">
+      <img src="http://themushroomkingdom.net/images/ani/ani_smwyoshimario.gif">
+    </button>
   </div>
   <div id="bottom row">
-    <button class="colors" id="blue"></button>
-    <button class="colors" id="yellow"></button>
+    <button class="colors" id="blue" name="sound" value="hammer">
+      <img src="http://themushroomkingdom.net/images/ani/ani_4hammerbro.gif">
+    </button>
+    <button class="colors" id="yellow" name="sound" value="koopa">
+      <img src="http://themushroomkingdom.net/images/ani/ani_4yellowfly.gif">
+    </button>
   </div>
   <section>
-    <button id="start">Start!</button>
+    <button id="start">INSERT COIN</button>
   </section>
   <footer>
-    <span id="score">Score: </button>
+    <span id="score">Score: </span>
     <!--span id="hiScore">High Score: </button>-->
   </footer>
 </body>

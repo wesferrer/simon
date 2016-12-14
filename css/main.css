@@ -1,5 +1,5 @@
 body {
-  background-image: url("http://i.imgur.com/FvvsGoQ.jpg");
+  background-image: url("http://www.engchou.com/i/2016/10/super-mario-world-wallpapers-free.jpg");
   background-size: cover;
   color:white;
   font-family: 'VT323', monospace;
@@ -11,36 +11,68 @@ body {
 .colors {
   border: 2px solid white;
   margin: 0;
-  height: 25em;
-  width: 25em;
+  height: 20em;
+  width: 20em;
   padding: 0;
   margin: 0;
 
 }
 
+#start{
+  font-size: 20px;
+}
+#score{
+  font-size:50px;
+}
 
+h1 {
+  margin: 0;
+}
+
+header{
+  height: 200px;
+}
+img {
+  height: 80px;
+  margin: 0 auto;
+  vertical-align: middle;
+  display: block;
+}
+
+h2{
+  padding:0;
+  margin: 0;
+}
+.animate {
+  animation: pulse 1500ms infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0;
+  }
+  50%{
+    opacity: 1;
+  }
+}
 
 #red{
-  background-color:#770000;
-  border-top-left-radius: 140px;
-  border-bottom-right-radius: 140px;
+  background-color:#880000;
+  border-radius: 140px;
 }
 
 #green{
   background-color:#004d00;
-  border-top-right-radius: 140px;
-  border-bottom-left-radius: 140px;
+  border-radius: 140px;
 }
 
 #blue{
   background-color:#000077;
-  border-bottom-left-radius: 140px;
-  border-top-right-radius: 140px;
+  border-radius: 140px;
 }
 #yellow{
   background-color:#cccc00;
-  border-bottom-right-radius: 140px;
-  border-top-left-radius: 140px;
+  border-radius: 140px;
 }
 
 #red:active {

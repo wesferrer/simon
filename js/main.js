@@ -15,6 +15,24 @@ computerChoice = [];
 score = 0;
 highScore = 0;
 
+//SOUNDS
+var myMap = new Map();
+
+myMap.set(buttons[0], "http://themushroomkingdom.net/sounds/wav/smw/smw_jump.wav")
+myMap.set(buttons[1], 'http://themushroomkingdom.net/sounds/wav/smw/smw_yoshi_tongue.wav')
+myMap.set(buttons[2], 'http://themushroomkingdom.net/sounds/wav/smw/smw_stomp_koopa_kid.wav')
+myMap.set(buttons[3], 'http://themushroomkingdom.net/sounds/wav/smw/smw_stomp.wav')
+myMap.set(startButton, 'http://themushroomkingdom.net/sounds/wav/smw/smw_coin.wav')
+myMap.set('last', 'http://themushroomkingdom.net/sounds/wav/smw/smw_lost_a_life.wav')
+
+function clickSound(button){
+  console.log(button)
+  var elem = new Audio(myMap.get(button));
+  elem.play();
+}
+
+
+
 // event handlers
 $('.colors').on('click', handleColorClick);
 
@@ -26,19 +44,23 @@ startButton.addEventListener('click', handleStartClick);
 // FUNCTIONS
 
 function handleStartClick() {
+  clickSound(this);
+  removeOver();
   init();
-  compTurn();
+  setTimeout(compTurn, 1000);
 }
 
 function handleColorClick() {
   playerChoice.push(this);
   compare();
   document.getElementById('score').innerHTML = 'Score: ' + (computerChoice.length - 1);
+  clickSound(this)
 }
 
 function init(){
   computerChoice = [];
   document.getElementById('score').innerHTML = 'Score: 0';
+
 }
 
 //initialize board state, wait 3 seconds, then add random number to sequence
@@ -53,6 +75,10 @@ function score(){
 
 function disableColors() {
   $('.colors').attr('disabled', true);
+}
+function removeOver() {
+  $('#over').css('opacity', 0)
+  $('#over').removeClass('animate');
 }
 
 function enableColors() {
@@ -88,11 +114,16 @@ console.log(computerChoice);
 function flashButton(btn) {
   $(btn).addClass('flash');
   console.log('flashing btn: ', btn);
+  clickSound(btn);
 }
 
 function unflashButton(btn) {
   $(btn).removeClass('flash')
   console.log('unflash btn: ', btn);
+}
+function overFlash() {
+  $('h2').addClass('animate');
+  clickSound('last');
 }
 
 function compTurn(){
@@ -104,10 +135,9 @@ function compTurn(){
 
 function gameOver(){
   console.log('Game Over!');
-  disablePlayButtons(document.getElementsByClassName('colors'));
-  /*setTimeout(function(){
-    alert('Press Start to try again!');
-  }, 1000);*/
+  disableColors();
+  playerChoice = [];
+  setTimeout(overFlash, 800);
 }
 
 
@@ -121,15 +151,18 @@ function compare() {
   random = Math.floor((Math.random() * 4) + 1);
   for(var i = 0; i < playerChoice.length; i++) {
     if(computerChoice[i] !== playerChoice[i]) {
-      console.log('Game Over!');
-      setTimeout(function(){
-        alert("Press Start to try again!");
-      }, 1000);
+      gameOver()
     }
    }
-  if(computerChoice.length === playerChoice.length) {
-      compTurn ();
-    };
-}
+  if(computerChoice.length === playerChoice.length){
+      setTimeout(function(){
+        compTurn(); }, 1000);
+  }
+};
 
 disableColors();
+removeOver();
+
+/*  var audio = document.getElementById("mario");
+  audio.play();
+}*/
