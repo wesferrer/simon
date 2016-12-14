@@ -21,7 +21,7 @@ body {
 
 
 #red{
-  background-color:#990000;
+  background-color:#770000;
   border-top-left-radius: 140px;
   border-bottom-right-radius: 140px;
 }
@@ -33,7 +33,7 @@ body {
 }
 
 #blue{
-  background-color:#000099;
+  background-color:#000077;
   border-bottom-left-radius: 140px;
   border-top-right-radius: 140px;
 }
@@ -53,5 +53,18 @@ body {
   background-color: blue;
 }
 #yellow:active {
+  background-color: yellow;
+}
+
+#red.flash {
+  background-color: red;
+}
+#green.flash {
+  background-color: green;
+}
+#blue.flash {
+  background-color: blue;
+}
+#yellow.flash {
   background-color: yellow;
 }
