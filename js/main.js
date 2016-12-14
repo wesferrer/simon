@@ -13,8 +13,36 @@ random = random;
 score = 0;
 highScore = 0;
 
+var tickResolution = 500;
+var ticksPerColor = 3;
+var ticksBetween = 1;
+var timerId;
+// elements
+var display = document.querySelector('div');
+var startBtn = document.querySelector('button');
+
+// event handlers
+startBtn.addEventListener('click', displayAnimals);
+
 function score(){
   document.getElementById('score').innerHTML = computerChoice.length;
+}
+
+function displayAnimals() {
+  var colorIdx = 0;
+  var tickCount = 0;
+  timerId = setInterval(handleTick, tickResolution);
+  function handleTick() {
+    var showTick = colorIdx * (ticksBetween + ticksPerColor);
+    var hideTick = ticksPerColor + colorIdx * (ticksBetween + ticksPerColor);
+    if (tickCount ===  showTick) display.innerHTML = computerChoice[colorIdx];
+    if (tickCount ===  hideTick) {
+      display.innerHTML = '';
+      colorIdx++;
+      if (colorIdx === computerChoice.length) clearInterval(timerId);
+    }
+    tickCount++;
+  }
 }
 
 function disablePlayButtons(inputs){
@@ -102,7 +130,6 @@ function compare() {
     if(computerChoice[i] !== playerChoice[i]) {
       console.log('Game Over!');
       disablePlayButtons(document.getElementsByClassName('colors'));
-      playerChoice = [];
       setTimeout(function(){
         alert("Press Start to try again!");
       }, 1000);

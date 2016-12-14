@@ -5,7 +5,8 @@ body {
   font-family: 'VT323', monospace;
   text-align: center;
   font-size: 40px;
-  color: orange;
+  color: purple;
+  font-style: italic;
 }
 .colors {
   border: 2px solid white;
