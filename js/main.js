@@ -80,8 +80,6 @@ function enableColors() {
 }
 
 function animateColors() {
-
-
 var tickResolution = 300;
 var ticksPerColor = 3;
 var ticksBetween = 1;
