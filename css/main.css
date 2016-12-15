@@ -1,29 +1,19 @@
+@font-face{
+  font-family:'Super Mario World';
+  src: url('../assets/fonts/super-mario-world.ttf') format("truetype");
+  font-weight: 900;
+}
 body {
   background-image: url("http://www.engchou.com/i/2016/10/super-mario-world-wallpapers-free.jpg");
   background-size: cover;
   color:white;
-  font-family: 'VT323', monospace;
+  font-family: "Super Mario World";
   text-align: center;
   font-size: 40px;
   color: purple;
   font-style: italic;
 }
-.colors {
-  border: 2px solid white;
-  margin: 0;
-  height: 20em;
-  width: 20em;
-  padding: 0;
-  margin: 0;
 
-}
-
-#start{
-  font-size: 20px;
-}
-#score{
-  font-size:50px;
-}
 
 h1 {
   margin: 0;
@@ -43,6 +33,28 @@ h2{
   padding:0;
   margin: 0;
 }
+.colors {
+  border: 2px solid white;
+  margin: 0;
+  height: 20em;
+  width: 20em;
+  padding: 0;
+  margin: 0;
+}
+
+#score{
+  margin: 100px;
+}
+
+#start{
+  font-size: 20px;
+}
+footer{
+  font-size:50px;
+  margin-top: 30px;
+}
+
+
 .animate {
   animation: pulse 1500ms infinite;
 }
@@ -100,3 +112,4 @@ h2{
 #yellow.flash {
   background-color: yellow;
 }
+button:focus {outline:0;}

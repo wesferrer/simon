@@ -26,20 +26,15 @@ myMap.set(startButton, 'http://themushroomkingdom.net/sounds/wav/smw/smw_coin.wa
 myMap.set('last', 'http://themushroomkingdom.net/sounds/wav/smw/smw_lost_a_life.wav')
 
 function clickSound(button){
-  console.log(button)
   var elem = new Audio(myMap.get(button));
   elem.play();
 }
-
-
 
 // event handlers
 $('.colors').on('click', handleColorClick);
 
 //await player to press start
 startButton.addEventListener('click', handleStartClick);
-
-
 
 // FUNCTIONS
 
@@ -54,13 +49,12 @@ function handleColorClick() {
   playerChoice.push(this);
   compare();
   document.getElementById('score').innerHTML = 'Score: ' + (computerChoice.length - 1);
-  clickSound(this)
+  clickSound(this);
 }
 
 function init(){
   computerChoice = [];
   document.getElementById('score').innerHTML = 'Score: 0';
-
 }
 
 //initialize board state, wait 3 seconds, then add random number to sequence
@@ -87,39 +81,35 @@ function enableColors() {
 
 function animateColors() {
 
-console.log(computerChoice);
 
-  var tickResolution = 300;
-  var ticksPerColor = 3;
-  var ticksBetween = 1;
-  var colorIdx = 0;
-  var tickCount = 0;
-  var timerId = setInterval(handleTick, tickResolution);
-  function handleTick() {
-    var showTick = colorIdx * (ticksBetween + ticksPerColor);
-    var hideTick = ticksPerColor + colorIdx * (ticksBetween + ticksPerColor);
-    if (tickCount ===  showTick) flashButton(computerChoice[colorIdx]);
-    if (tickCount ===  hideTick) {
-      unflashButton(computerChoice[colorIdx]);
-      colorIdx++;
-      if (colorIdx === computerChoice.length) {
-        clearInterval(timerId);
-        enableColors();
-      }
+var tickResolution = 300;
+var ticksPerColor = 3;
+var ticksBetween = 1;
+var colorIdx = 0;
+var tickCount = 0;
+var timerId = setInterval(handleTick, tickResolution);
+function handleTick() {
+  var showTick = colorIdx * (ticksBetween + ticksPerColor);
+  var hideTick = ticksPerColor + colorIdx * (ticksBetween + ticksPerColor);
+  if (tickCount ===  showTick) flashButton(computerChoice[colorIdx]);
+  if (tickCount ===  hideTick) {
+    unflashButton(computerChoice[colorIdx]);
+    colorIdx++;
+    if (colorIdx === computerChoice.length) {
+      clearInterval(timerId);
+      enableColors();
     }
-    tickCount++;
   }
+  tickCount++;
 }
-
+}
 function flashButton(btn) {
   $(btn).addClass('flash');
-  console.log('flashing btn: ', btn);
   clickSound(btn);
 }
 
 function unflashButton(btn) {
   $(btn).removeClass('flash')
-  console.log('unflash btn: ', btn);
 }
 function overFlash() {
   $('h2').addClass('animate');
@@ -134,19 +124,12 @@ function compTurn(){
 }
 
 function gameOver(){
-  console.log('Game Over!');
   disableColors();
   playerChoice = [];
   setTimeout(overFlash, 800);
 }
 
-
-
-
 //animate sequence tied to random number to user
-
-
-
 function compare() {
   random = Math.floor((Math.random() * 4) + 1);
   for(var i = 0; i < playerChoice.length; i++) {
@@ -162,7 +145,3 @@ function compare() {
 
 disableColors();
 removeOver();
-
-/*  var audio = document.getElementById("mario");
-  audio.play();
-}*/
