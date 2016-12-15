@@ -1,6 +1,6 @@
 
 //define variables
-var playerChoice, computerChoice, score, highScore, startButton;
+var playerChoice, computerChoice, score, startButton;
 
 var buttons = [
   document.getElementById('red'),
@@ -13,7 +13,6 @@ startButton = document.getElementById('start');
 playerChoice = [];
 computerChoice = [];
 score = 0;
-highScore = 0;
 
 //SOUNDS
 var myMap = new Map();
@@ -48,7 +47,6 @@ function handleStartClick() {
 function handleColorClick() {
   playerChoice.push(this);
   compare();
-  document.getElementById('score').innerHTML = 'Score: ' + (computerChoice.length - 1);
   clickSound(this);
 }
 
@@ -63,8 +61,8 @@ function nextNum(){
   computerChoice.push(buttons[rnd]);
 };
 
-function score(){
-  document.getElementById('score').innerHTML = 'Score: ' + (computerChoice.length - 1);
+function scorePlus(){
+  document.getElementById('score').innerHTML = 'Score: ' + (computerChoice.length);
 }
 
 function disableColors() {
@@ -136,6 +134,7 @@ function compare() {
     }
    }
   if(computerChoice.length === playerChoice.length){
+      scorePlus();
       setTimeout(function(){
         compTurn(); }, 1000);
   }

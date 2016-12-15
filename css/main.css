@@ -42,7 +42,12 @@ h2{
 }
 
 #score{
-  margin: 100px;
+  margin: 0 auto;
+  border: 1px solid grey;
+  width: 300px;
+  background-color: rgba(128, 128, 128, 0.85);
+
+  display: inline-block;
 }
 
 #start{
@@ -112,9 +117,6 @@ footer{
   background-color: yellow;
 }
 #scorebox {
-  border: 1px solid grey;
-  width: 400px;
-  margin: 0 auto;
-  background-color: grey;
+
 }
 button:focus {outline:0;}
