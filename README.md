@@ -17,6 +17,8 @@
 3. Press the button that was lit up from step 2
 4. Repeat the sequence until you can't remember anymore!
 
+### The game can be played [here!](http://wesferrer.github.io/simon)
+
 ###Future Updates
-Different animations upon click
-High Score
+1. Different animations upon click
+2. High Score
